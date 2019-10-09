@@ -16,16 +16,16 @@
     --font-weight: 900;
 }
 
-body{   
+#wrapper{   
     height: 100vh;
     background: url('../img/buffet-bg.jpg') no-repeat;
     background-size: cover;
     background-position: center;
-
 } 
 
-
-#wrapper{
+#front-page,
+#register-page,
+#login-page{
     height: 100vh;
     display: grid; 
     grid-template-columns: repeat(12,1fr);
@@ -33,7 +33,22 @@ body{
     background: rgba(0, 0, 0, 0.4);
 }
 
-#header-container{
+/* Displaying only the front page in the beginning. */
+#register-page,
+#login-page{
+    display: none;
+}
+
+.fontAwesome{ 
+    font-family: var(--h1-font), FontAwesome, sans-serif; 
+    font-size: 16px;
+}
+
+
+/* -------- FRONT PAGE - START --------------- */
+/* Some of the styling is also used for login-page and register-page */
+
+.header-container{
     grid-column: span 12;
     grid-row: 3;
     display: flex;
@@ -43,17 +58,17 @@ body{
     color: var(--h1-color);
 }
 
-#header-container h1{
-    font-size: 60px;
+.header-container h1{
+    font-size: 55px;
 }
 
-#header-container span{
+.header-container span{
     font-size: 20px;
     font-weight: 300;
     margin-top: 5px;
 }
 
-#middle-container{
+.middle-container{
     grid-column: 2/12;
     grid-row: 6;
     display: flex;
@@ -61,7 +76,17 @@ body{
     align-items: center;
 }
 
-#middle-container a{
+.middle-container .login{
+    color: var(--text-color);
+    font-family: var(--text-font);
+}
+
+.middle-container .sign-up{
+    color: var(--text-color);
+    font-family: var(--text-font);
+}
+
+.middle-container .button{
     width: 100%;
     height: 55px;
     display: flex;
@@ -78,25 +103,121 @@ body{
     outline: none;
 }
 
-#middle-container a:hover{
+.middle-container a:hover{
     cursor: pointer;
 }
 
-#middle-container i{
+.middle-container i{
     font-size : 20px;
     margin-right: 10px;
 }
 
-#middle-container h3{
+.middle-container h3{
     color: var(--text-color);
     font-family: var(--text-font);
     margin-top: 5px;
     font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .5px;
 }
 
-/* Används för Iphone och mindre */
+/* -------- FRONT PAGE - END --------------- */
+
+
+
+
+/* -------- CREATE ACCOUNT - START --------------- */
+
+.back-container{
+    grid-column: span 3;
+    grid-row: 1;
+    margin: 10px 0 0 10px;
+}
+
+.back-container a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;  
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: var(--text-font);
+    color: var(--text-color);
+    font-weight: var(--font-weight);
+    cursor: pointer;
+}
+
+.back-container i{
+    font-size: 30px;
+    margin-right: 5px;
+}
+
+#register-page .middle-container input,
+#login-page .middle-container input{
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+
+#register-page .middle-container .button,
+#login-page .middle-container .button{
+    font-size: 25px;
+    height: 60px;
+    font-family: var(--h1-font);
+    font-weight: 300;
+}
+/* -------- CREATE ACCOUNT - END ------------- */
+
+
+/* -------- LOGIN - START ------------- */
+#login-page .header-container h1{
+    letter-spacing: 2px;
+}
+
+#login-page .middle-container .button{
+    margin-top: 50px;
+}
+
+#login-page .middle-container .forgot-password{
+    font-family: var(--text-font);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--h1-color);
+    text-decoration: none;
+    margin: -5px 5px 0 auto;
+    letter-spacing: .5px;
+}
+
+
+
+/* -------- LOGIN - END ------------- */
+
+
+/* -------- MEDIA  QUERIES - START ------------- */
+
+/* Being used for Iphone 5 */
 @media screen and (max-width: 321px){
-    #header-container h1{
-        font-size: 50px;
+    .header-container{
+        grid-row: 4;
+    }
+
+    .header-container h1{
+        font-size: 45px;
+    }
+
+    .back-container{
+        grid-row: span 2;
+        margin: 5px 0 0 5px;
     }
 }
+
+
+
+
+
+
+/* -------- MEDIA  QUERIES - END ------------- */
